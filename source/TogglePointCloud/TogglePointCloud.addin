@@ -1,0 +1,16 @@
+﻿<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>TogglePointCloud</Name>
+        <Assembly>TogglePointCloud\TogglePointCloud.dll</Assembly>
+        <AddInId>4368BEFE-C2EE-4F38-B14A-3CABD0D3FF06</AddInId>
+        <FullClassName>TogglePointCloud.Commands.StartupCommand</FullClassName>
+        <Text>TogglePointCloud</Text>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>TogglePointCloud</ContextName>
+    </ManifestSettings>
+</RevitAddIns>

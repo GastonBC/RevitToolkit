@@ -1,0 +1,16 @@
+﻿<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>Toolbox</Name>
+        <Assembly>Toolbox\Toolbox.dll</Assembly>
+        <AddInId>C147E6B5-8A7E-4858-916E-63B28CB7C339</AddInId>
+        <FullClassName>Toolbox.Commands.StartupCommand</FullClassName>
+        <Text>Toolbox</Text>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>Toolbox</ContextName>
+    </ManifestSettings>
+</RevitAddIns>

@@ -1,0 +1,16 @@
+﻿<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>PointCloudNormals</Name>
+        <Assembly>PointCloudNormals\PointCloudNormals.dll</Assembly>
+        <AddInId>18607AE8-E223-4D1D-B3FF-DC355F272D9D</AddInId>
+        <FullClassName>PointCloudNormals.Commands.StartupCommand</FullClassName>
+        <Text>PointCloudNormals</Text>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>PointCloudNormals</ContextName>
+    </ManifestSettings>
+</RevitAddIns>

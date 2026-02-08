@@ -1,0 +1,16 @@
+﻿<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>OrientBoxToFace</Name>
+        <Assembly>OrientBoxToFace\OrientBoxToFace.dll</Assembly>
+        <AddInId>6A48708C-E440-4FC2-8B34-21930C2CFF8D</AddInId>
+        <FullClassName>OrientBoxToFace.Commands.StartupCommand</FullClassName>
+        <Text>OrientBoxToFace</Text>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>OrientBoxToFace</ContextName>
+    </ManifestSettings>
+</RevitAddIns>

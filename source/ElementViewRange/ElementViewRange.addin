@@ -1,0 +1,16 @@
+﻿<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>ElementViewRange</Name>
+        <Assembly>ElementViewRange\ElementViewRange.dll</Assembly>
+        <AddInId>1B12FC16-EC2D-452F-BF30-C4425C93F717</AddInId>
+        <FullClassName>ElementViewRange.Commands.StartupCommand</FullClassName>
+        <Text>ElementViewRange</Text>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>ElementViewRange</ContextName>
+    </ManifestSettings>
+</RevitAddIns>

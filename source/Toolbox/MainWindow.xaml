@@ -1,0 +1,35 @@
+﻿<Window x:Class="Toolbox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Toolbox"
+        mc:Ignorable="d"
+        Title="Toolbox" Width="220"
+        ResizeMode="NoResize"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True">
+    <StackPanel Margin="5,5,5,5">
+        <Button Content="Internal 0-0" Click="InternalZero_Click"/>
+        <!--<Button Content="Get hosted elements" Click="HostedElems_Click"/>-->
+        <!--<Button Content="Reload all CAD Links" Click="LinkQuickReload_Click"/>-->
+        <!--<Button Content="All text to uppercase" Click="AllUppercase_Click"/>-->
+        <Button Content="Copy selected views" Click="SelectedViews_Click"/>
+        <Button Content="Draw lines styles/patterns" Click="DrawLines_Click"/>
+        <!--<Button Content="Disallow CW Joins" Click="DisallowJoins_Click"/>-->
+        <!--<Button Content="Quick Select" Click="QuickSelect_Click"/>-->
+        <!--<Button Content="Keynote Editor" Click="KnEditor_Click"/>-->
+        <Button Content="Replace dimension text" Click="ReplaceDimTxt_Click"/>
+        <!--<Button Content="Family Loader" Click="FamLoader_Click"/>-->
+        <Button Content="Move category to workset" Click="CatToWkst_Click"/>
+        <!--<Button Content="Schedule Column To Upper" Click="SheetsToUpper_Click"/>-->
+        
+        <Button Content="Toggle Grid Bubbles" Click="ToggleGridBubbles_Click"/>
+        <!--<Button Content="Replace Templates" Click="ReplaceTemplates_Click"/>-->
+        <Button Content="Viewports to upper" Click="SheetsToUpper_Click"/>
+
+        <!--<Button Content="SPN to SPN Bronze" Click="SPN_To_SPNBronze_Click"/>-->
+        <!--<Button Content="CSV Writer" Click="WriteCsv_Click"/>-->
+    </StackPanel>
+</Window>

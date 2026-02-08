@@ -1,0 +1,23 @@
+﻿<Window x:Class="Toolbox.DrawLinesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Toolbox"
+        mc:Ignorable="d"
+        Title="LinesWindow" 
+        Width="220"
+        ResizeMode="NoResize"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True">
+    <StackPanel Margin="5,5,5,5">
+        <Button Content="Draw line patterns" Height="25" Click="LinePattern_PreClick"/>
+        <Button Content="Draw line styles" Height="25" Click="LineStyle_PreClick"/>
+        <Rectangle Height="5"/>
+        <Button Content="Draw fill region patterns" Height="25" Click="FillPattern_PreClick"/>
+        <Button Content="Draw fill region types" Height="25" Click="FillType_PreClick"/>
+        <Rectangle Height="5"/>
+        <Button Content="Do all" Height="25" Click="DoAll_Click"/>
+    </StackPanel>
+</Window>

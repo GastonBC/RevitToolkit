@@ -1,0 +1,16 @@
+﻿<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>CADDetective</Name>
+        <Assembly>CADDetective\CADDetective.dll</Assembly>
+        <AddInId>40D77DE5-CAA4-4E9B-8CDB-61D608A41BFB</AddInId>
+        <FullClassName>CADDetective.Commands.StartupCommand</FullClassName>
+        <Text>CADDetective</Text>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>CADDetective</ContextName>
+    </ManifestSettings>
+</RevitAddIns>

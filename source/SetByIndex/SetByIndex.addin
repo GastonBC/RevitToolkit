@@ -1,0 +1,16 @@
+﻿<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>SetByIndex</Name>
+        <Assembly>SetByIndex\SetByIndex.dll</Assembly>
+        <AddInId>4CB177DB-BA38-4638-8215-8017D4CF26CC</AddInId>
+        <FullClassName>SetByIndex.Commands.StartupCommand</FullClassName>
+        <Text>SetByIndex</Text>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>SetByIndex</ContextName>
+    </ManifestSettings>
+</RevitAddIns>

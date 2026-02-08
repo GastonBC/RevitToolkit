@@ -1,0 +1,27 @@
+﻿<Window x:Class="Toolbox.CopyViewsWindow.CopyViewsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Copy selected windows" SizeToContent="Height" Width="250"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True" Height="200">
+    <Grid Margin="5,5,5,5">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Button Content="Button" Grid.Row="1" Click="Copy_Click"/>
+        <StackPanel x:Name="StackPanel" Margin="0,0,0,5">
+            <Label Content="Select a copy mode"/>
+            <RadioButton GroupName="Mode" x:Name="Duplicate" Content="Duplicate view"/>
+            <RadioButton GroupName="Mode" x:Name="Detailing" Content="With detailing"/>
+            <RadioButton GroupName="Mode" x:Name="Dependent" Content="As dependent"/>
+            <Label />
+            <TextBlock Text="Sheets will be copied with the same parameters" Height="37" TextWrapping="Wrap"/>
+            
+        </StackPanel>
+    </Grid>
+</Window>

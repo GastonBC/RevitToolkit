@@ -1,0 +1,16 @@
+﻿<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>FindSchedsLegends</Name>
+        <Assembly>FindSchedsLegends\FindSchedsLegends.dll</Assembly>
+        <AddInId>0013EA3C-E637-4FCF-84D6-61E5282F6521</AddInId>
+        <FullClassName>FindSchedsLegends.Commands.StartupCommand</FullClassName>
+        <Text>FindSchedsLegends</Text>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>FindSchedsLegends</ContextName>
+    </ManifestSettings>
+</RevitAddIns>
