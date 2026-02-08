@@ -49,19 +49,15 @@ namespace TypeRenamer.Commands
 
             TaskDialog.Show("Revit", "Found " + typesToRename.Count.ToString() + " types to rename.");
 
-            using (Transaction t = new Transaction(doc, "Adjust type names"))
+
+            foreach (KeyValuePair<T, string> entry in typesToRename)
             {
-                t.Start();
-                foreach (KeyValuePair<T, string> entry in typesToRename)
+                T elementType = entry.Key;
+                string finalName = entry.Value;
+                if (elementType.Name != finalName)
                 {
-                    T elementType = entry.Key;
-                    string finalName = entry.Value;
-                    if (elementType.Name != finalName)
-                    {
-                        elementType.Name = finalName;
-                    }
+                    elementType.Name = finalName;
                 }
-                t.Commit();
             }
         }
 
@@ -188,38 +184,50 @@ namespace TypeRenamer.Commands
 
         public override void Execute()
         {
+            ICollection<ElementId> selection = UiDocument.Selection.GetElementIds();
 
-            UIDocument uidoc = this.UiDocument;
-            Document doc = uidoc.Document;
-
-            ICollection<ElementId> selection = uidoc.Selection.GetElementIds();
-
-            // Create the task dialog instance
-            TaskDialog td = new TaskDialog("Revit Naming Tool");
-
-            td.MainInstruction = "Select an element type to rename:";
-
-            td.AddCommandLink(TaskDialogCommandLinkId.CommandLink1, "Windows");
-            td.AddCommandLink(TaskDialogCommandLinkId.CommandLink2, "Doors");
-            td.AddCommandLink(TaskDialogCommandLinkId.CommandLink3, "Mullions");
-            td.AddCommandLink(TaskDialogCommandLinkId.CommandLink4, "Panels");
-
-            TaskDialogResult result = td.Show();
-
-            switch (result)
+            if (!selection.Any())
             {
-                case TaskDialogResult.CommandLink1:
-                    WindowNaming(doc, selection);
-                    break;
-                case TaskDialogResult.CommandLink2:
-                    DoorNaming(doc, selection);
-                    break;
-                case TaskDialogResult.CommandLink3:
-                    MullionNaming(doc, selection);
-                    break;
-                case TaskDialogResult.CommandLink4:
-                    PanelNaming(doc, selection);
-                    break;
+                TaskDialog.Show("Error", "Please select elements first.");
+                return;
+            }
+
+            // Group elements by their Category Name (or BuiltInCategory)
+            var groupedElements = selection
+                .Select(id => Document.GetElement(id))
+                .Where(e => e.Category != null) // Filter out things without categories
+                .GroupBy(e => e.Category.BuiltInCategory);
+
+            using (Transaction tx = new Transaction(Document, "Smart Rename Groups"))
+            {
+                tx.Start();
+
+                foreach (var group in groupedElements)
+                {
+                    var category = group.Key;
+                    var ids = group.Select(e => e.Id).ToList();
+
+
+                    switch (category)
+                    {
+                        case BuiltInCategory.OST_Windows:
+                            WindowNaming(Document, ids);
+                            break;
+                        case BuiltInCategory.OST_Doors:
+                            DoorNaming(Document, ids);
+                            break;
+                        case BuiltInCategory.OST_CurtainWallMullions:
+                            MullionNaming(Document, ids);
+                            break;
+                        case BuiltInCategory.OST_CurtainWallPanels:
+                            PanelNaming(Document, ids);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                tx.Commit();
             }
 
         }
