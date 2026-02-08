@@ -1,0 +1,16 @@
+﻿<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>SmartGridBubbles</Name>
+        <Assembly>SmartGridBubbles\SmartGridBubbles.dll</Assembly>
+        <AddInId>360984AF-6BC6-4B5F-BE61-2F002B58C88A</AddInId>
+        <FullClassName>SmartGridBubbles.Commands.StartupCommand</FullClassName>
+        <Text>SmartGridBubbles</Text>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>SmartGridBubbles</ContextName>
+    </ManifestSettings>
+</RevitAddIns>
