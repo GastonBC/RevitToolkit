@@ -36,7 +36,7 @@ You can install the tools individually or all at once:
 
 | Add-in | Description |
 | --- | --- |
-| **ReValue** | Ported from pyRevit. Powerful parameter value management. |
+| **[ReValue](./source/ReValue/readme.md)** | Ported from pyRevit. Powerful parameter value management. |
 | **Type Renamer** | Batch rename elements with prefix/suffix logic. |
 | **Fix Constraints** | Automatically adjust element levels to the nearest level. |
 | **CAD Detective** | Locate and manage imported or linked CAD files hidden in the model. |
@@ -57,3 +57,5 @@ The build system targets Revit **2024, 2025, and 2026** specifically, ensuring c
 This project and the installer have been created using **[Nice3Point's Revit templates](https://github.com/Nice3point/RevitTemplates)**.s
 
 [Detailed Build Information](nuke_readme.md)
+
+

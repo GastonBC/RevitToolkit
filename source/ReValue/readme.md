@@ -53,9 +53,6 @@ This tool is a C# translation of the **ReValue** tool originally found in the **
 
 The logic and user workflow remain faithful to the original pyRevit implementation, while the engine has been rebuilt for the .NET environment to support the latest Revit versions (2024–2026).
 
-
-Here is the updated section to include in your **ReValue** `README.md`. I have positioned it to highlight the tool's versatility and your cross-platform implementation.
-
 ---
 
 ### 🦀 Beyond Revit: Desktop Version
