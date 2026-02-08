@@ -36,6 +36,7 @@ You can install the tools individually or all at once:
 
 | Add-in | Description |
 | --- | --- |
+| **[AddinLoader](./source/AddinLoader/readme.md)** | Main addin. Loads the dlls by reflection |
 | **[ReValue](./source/ReValue/readme.md)** | Ported from pyRevit. Powerful parameter value management. |
 | **Type Renamer** | Batch rename elements with prefix/suffix logic. |
 | **Fix Constraints** | Automatically adjust element levels to the nearest level. |
