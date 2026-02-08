@@ -163,23 +163,23 @@ namespace Utilities
         /// </summary>
         /// <param name="imagePath">Path to the embedded resource</param>
         /// <returns>ImageSource</returns>
-        public static ImageSource RetriveImage(string imagePath, Assembly assembly)
-        {
+        //public static ImageSource RetriveImage(string imagePath, Assembly assembly)
+        //{
 
-            Stream manifestResourceStream = assembly.GetManifestResourceStream(imagePath);
-            string str = imagePath.Substring(imagePath.Length - 3);
+        //    Stream manifestResourceStream = assembly.GetManifestResourceStream(imagePath);
+        //    string str = imagePath.Substring(imagePath.Length - 3);
 
-            if (str == "jpg")
-                return (ImageSource)new JpegBitmapDecoder(manifestResourceStream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default).Frames[0];
-            else if (str == "bmp")
-                return (ImageSource)new BmpBitmapDecoder(manifestResourceStream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default).Frames[0];
-            else if (str == "png")
-                return (ImageSource)new PngBitmapDecoder(manifestResourceStream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default).Frames[0];
-            else if (str == "ico")
-                return (ImageSource)new IconBitmapDecoder(manifestResourceStream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default).Frames[0];
-            else
-                return (ImageSource)null;
-        }
+        //    if (str == "jpg")
+        //        return (ImageSource)new JpegBitmapDecoder(manifestResourceStream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default).Frames[0];
+        //    else if (str == "bmp")
+        //        return (ImageSource)new BmpBitmapDecoder(manifestResourceStream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default).Frames[0];
+        //    else if (str == "png")
+        //        return (ImageSource)new PngBitmapDecoder(manifestResourceStream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default).Frames[0];
+        //    else if (str == "ico")
+        //        return (ImageSource)new IconBitmapDecoder(manifestResourceStream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default).Frames[0];
+        //    else
+        //        return (ImageSource)null;
+        //}
 
         public static List<ViewSheet> GetAllSheets(Document doc)
         {

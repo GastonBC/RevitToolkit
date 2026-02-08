@@ -20,5 +20,6 @@ namespace AddinLoader
 
         internal static string INVOKE01_PATH = Path.Combine(ADDINS_DLL_PATH, "TypeRenamer", "TypeRenamer.dll");
         internal static string INVOKE02_PATH = Path.Combine(ADDINS_DLL_PATH, "FixElementConstraints", "FixElementConstraints.dll");
+        internal static string INVOKE03_PATH = Path.Combine(ADDINS_DLL_PATH, "ReValue", "ReValue.dll");
     }
 }

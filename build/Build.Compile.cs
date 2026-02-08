@@ -10,7 +10,11 @@ sealed partial class Build
         .DependsOn(Clean)
         .Executes(() =>
         {
-            foreach (var configuration in GlobBuildConfigurations())
+            // Filter to only include configurations ending in R24, R25, or R26
+            var targetConfigurations = GlobBuildConfigurations()
+                .Where(x => x.Contains("R24") || x.Contains("R25") || x.Contains("R26"));
+
+            foreach (var configuration in targetConfigurations)
             {
                 DotNetBuild(settings => settings
                     .SetProjectFile(Solution)

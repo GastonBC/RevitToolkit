@@ -1,0 +1,54 @@
+﻿<Window x:Class="ReValue.Commands.ReValueWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReValue.Commands"
+        mc:Ignorable="d"
+Title="ReValue Parameters" Height="439" Width="600">
+    <DockPanel Margin="10">
+        <StackPanel DockPanel.Dock="Top">
+            <DockPanel>
+                <TextBlock Text="Parameter" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                <ComboBox x:Name="params_cb" SelectionChanged="OnParamChange"/>
+            </DockPanel>
+
+            <DockPanel Margin="0,10,0,0">
+                <TextBlock Text="Original Pattern" Width="100" VerticalAlignment="Center"/>
+                <TextBox x:Name="orig_format_tb" TextChanged="OnFormatChange" FontFamily="Courier New"/>
+            </DockPanel>
+
+            <DockPanel Margin="0,10,0,0">
+                <TextBlock Text="New Pattern" Width="100" VerticalAlignment="Center"/>
+                <TextBox x:Name="new_format_tb" TextChanged="OnFormatChange" FontFamily="Courier New"/>
+            </DockPanel>
+        </StackPanel>
+
+        <Grid DockPanel.Dock="Bottom" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="final_b" Content="Mark Selected as Final" Grid.Column="1" Click="MarkAsFinal" Margin="0,0,5,0"/>
+            <Button x:Name="apply_b" Content="Apply New Values" Grid.Column="2" Click="ApplyNewValues"/>
+        </Grid>
+
+        <DataGrid x:Name="preview_dg" Margin="0,10,0,0" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="OnSelectionChange">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Old Value" Binding="{Binding OldValue}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="New Value" Binding="{Binding NewValue}" Width="*" IsReadOnly="True">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Final}" Value="True">
+                                    <Setter Property="Background" Value="LightGreen"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

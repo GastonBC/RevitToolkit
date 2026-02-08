@@ -17,7 +17,10 @@ sealed partial class Build
     /// </summary>
     Dictionary<Project, Project> InstallersMap => new()
     {
-        {Solution.Automation.Installer, Solution.TypeRenamer}
+        {Solution.Automation.Installer, Solution.AddinLoader},
+        {Solution.Automation.Installer, Solution.FixElementConstraints},
+        {Solution.Automation.Installer, Solution.ReValue},
+        {Solution.Automation.Installer, Solution.TypeRenamer},
     };
 
     /// <summary>

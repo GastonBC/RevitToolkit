@@ -29,4 +29,15 @@ namespace AddinLoader.Commands
             return Result.Succeeded;
         }
     }
+
+    [Transaction(TransactionMode.Manual)]
+    public class Invoke03 : IExternalCommand
+    {
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        {
+            Utils.InvokeCmd(commandData, ref message, elements,
+                                    GlobalVars.INVOKE03_PATH, "INVOKE 03");
+            return Result.Succeeded;
+        }
+    }
 }

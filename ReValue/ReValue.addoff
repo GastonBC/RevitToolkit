@@ -1,0 +1,16 @@
+﻿<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>ReValue</Name>
+        <Assembly>ReValue\ReValue.dll</Assembly>
+        <AddInId>06D91F04-A502-404F-80C7-9D1C690A503D</AddInId>
+        <FullClassName>ReValue.Commands.StartupCommand</FullClassName>
+        <Text>ReValue</Text>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>ReValue</ContextName>
+    </ManifestSettings>
+</RevitAddIns>
