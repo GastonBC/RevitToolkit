@@ -22,64 +22,39 @@ namespace AddinLoader
         {
             RibbonPanel panel = Application.CreatePanel("Commands", "AddinLoader");
 
-            RibbonButton typeRenamerbutton = panel.AddPushButton<Invoke01>("Type Renamer")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
 
-            RibbonButton fixConstraintsbutton = panel.AddPushButton<Invoke02>("Fix Constraints")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
+            string assemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
 
+            // Column 1
+            panel.AddStackedItems(
+                Utils.CreateButton("Type Renamer", assemblyPath, typeof(Invoke01).FullName),
+                Utils.CreateButton("Fix Constraints", assemblyPath, typeof(Invoke02).FullName),
+                Utils.CreateButton("ReValue", assemblyPath, typeof(Invoke03).FullName)
+            );
 
-            RibbonButton reValuebutton = panel.AddPushButton<Invoke03>("ReValue")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
+            // Column 2
+            panel.AddStackedItems(
+                Utils.CreateButton("CAD Detective", assemblyPath, typeof(Invoke04).FullName),
+                Utils.CreateButton("Crop Reg", assemblyPath, typeof(Invoke05).FullName),
+                Utils.CreateButton("Element View Range", assemblyPath, typeof(Invoke06).FullName)
+            );
 
-            RibbonButton cadDetectiveButton = panel.AddPushButton<Invoke04>("CAD Detective")
-    .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-    .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
+            // Column 3
+            panel.AddStackedItems(
+                Utils.CreateButton("Find Scheds Legends", assemblyPath, typeof(Invoke07).FullName),
+                Utils.CreateButton("Orient Box To Face", assemblyPath, typeof(Invoke08).FullName),
+                Utils.CreateButton("Point Cloud Normals", assemblyPath, typeof(Invoke09).FullName)
+            );
 
-            RibbonButton cropRegButton = panel.AddPushButton<Invoke05>("Crop Reg")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
+            // Column 4
+            panel.AddStackedItems(
+                Utils.CreateButton("ReValue Duplicate", assemblyPath, typeof(Invoke10).FullName),
+                Utils.CreateButton("Set By Index", assemblyPath, typeof(Invoke11).FullName),
+                Utils.CreateButton("Toggle Point Cloud", assemblyPath, typeof(Invoke12).FullName)
+            );
 
-            RibbonButton elementViewRangeButton = panel.AddPushButton<Invoke06>("Element View Range")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
-
-            RibbonButton findSchedsLegendsButton = panel.AddPushButton<Invoke07>("Find Scheds Legends")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
-
-            RibbonButton orientBoxToFace08Button = panel.AddPushButton<Invoke08>("Orient Box To Face")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
-
-            RibbonButton pointCloudNormals09Button = panel.AddPushButton<Invoke09>("Point Cloud Normals")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
-
-            RibbonButton reValueDuplicateButton = panel.AddPushButton<Invoke10>("ReValue Duplicate")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
-
-            RibbonButton setByIndexButton = panel.AddPushButton<Invoke11>("Set By Index")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
-
-            RibbonButton togglePointCloudButton = panel.AddPushButton<Invoke12>("Toggle Point Cloud")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
-
-            RibbonButton toolboxButton = panel.AddPushButton<Invoke13>("Toolbox")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
-
-            RibbonButton orientBoxToFace14Button = panel.AddPushButton<Invoke14>("Orient Box To Face")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
-
-            RibbonButton pointCloudNormals15Button = panel.AddPushButton<Invoke15>("Point Cloud Normals")
+            // Column 5
+            RibbonButton typeRenamerbutton = panel.AddPushButton<Invoke13>("Toolbox")
                 .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
                 .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
 

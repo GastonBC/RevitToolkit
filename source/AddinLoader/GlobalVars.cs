@@ -35,7 +35,5 @@ namespace AddinLoader
         internal static string INVOKE12_PATH = Path.Combine(ADDINS_DLL_PATH, "TogglePointCloud", "TogglePointCloud.dll");
 
         internal static string INVOKE13_PATH = Path.Combine(ADDINS_DLL_PATH, "Toolbox", "Toolbox.dll");
-        internal static string INVOKE14_PATH = Path.Combine(ADDINS_DLL_PATH, "OrientBoxToFace", "OrientBoxToFace.dll");
-        internal static string INVOKE15_PATH = Path.Combine(ADDINS_DLL_PATH, "PointCloudNormals", "PointCloudNormals.dll");
     }
 }
