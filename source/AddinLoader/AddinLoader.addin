@@ -1,0 +1,15 @@
+﻿<RevitAddIns>
+    <AddIn Type="Application">
+        <Name>AddinLoader</Name>
+        <Assembly>AddinLoader\AddinLoader.dll</Assembly>
+        <AddInId>2E550154-7DFD-4C67-99C9-91501FC82A9E</AddInId>
+        <FullClassName>AddinLoader.Application</FullClassName>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>AddinLoader</ContextName>
+    </ManifestSettings>
+</RevitAddIns>
