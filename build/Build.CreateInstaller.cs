@@ -11,14 +11,17 @@ sealed partial class Build
     ///     Create the .msi installers.
     /// </summary>
     Target CreateInstaller => _ => _
-        .DependsOn(Compile)
-        .Executes(() =>
-        {
-            const string configuration = "Release";
-            foreach (var (wixTarget, wixInstaller) in InstallersMap)
+            .DependsOn(Compile)
+            .Executes(() =>
             {
-                Log.Information("Project: {Name}", wixTarget.Name);
-                
+                const string configuration = "Release";
+
+                // 1. Get the Installer Builder project (Automation.Installer)
+                // We take it from the first entry in the map since they are all the same
+                var wixInstaller = InstallersMap.Values.First();
+
+                Log.Information("Building Installer Generator: {Name}", wixInstaller.Name);
+
                 DotNetBuild(settings => settings
                     .SetProjectFile(wixInstaller)
                     .SetConfiguration(configuration)
@@ -26,18 +29,30 @@ sealed partial class Build
                     .SetVerbosity(DotNetVerbosity.minimal));
 
                 var builderFile = Directory
-                    .EnumerateFiles(wixInstaller.Directory / "bin" / configuration,  $"{wixInstaller.Name}.exe")
+                    .EnumerateFiles(wixInstaller.Directory / "bin" / configuration, $"{wixInstaller.Name}.exe")
                     .FirstOrDefault()
-                    .NotNull($"No installer builder was found for the project: {wixInstaller.Name}");
+                    .NotNull($"No installer builder was found: {wixInstaller.Name}");
 
-                var targetDirectories = Directory.GetDirectories(wixTarget.Directory, $"* {configuration} *", SearchOption.AllDirectories);
-                Assert.NotEmpty(targetDirectories, "No content were found to create an installer");
+                // 2. Collect ALL target directories from ALL projects in the map
+                var allTargetDirectories = new List<string>();
 
-                var arguments = targetDirectories.Select(path => path.DoubleQuoteIfNeeded()).JoinSpace();
+                foreach (var (wixTarget, _) in InstallersMap)
+                {
+                    Log.Information("Collecting content from: {Name}", wixTarget.Name);
+
+                    var directories = Directory.GetDirectories(wixTarget.Directory, $"* {configuration} *", SearchOption.AllDirectories);
+                    allTargetDirectories.AddRange(directories);
+                }
+
+                Assert.NotEmpty(allTargetDirectories, "No content were found to create an installer");
+
+                // 3. Run the builder ONCE with all directories as arguments
+                var arguments = allTargetDirectories.Select(path => path.DoubleQuoteIfNeeded()).JoinSpace();
+
+                Log.Information("Creating final installer package...");
                 var process = ProcessTasks.StartProcess(builderFile, arguments, logInvocation: false, logger: InstallerLogger);
                 process.AssertZeroExitCode();
-            }
-        });
+            });
 
     /// <summary>
     ///     Logs the output of the installer process.

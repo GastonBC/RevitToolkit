@@ -23,28 +23,40 @@ public static class Generator
             Description = "Revit add-in installation files",
             Display = FeatureDisplay.expand
         };
-        
+
+        // 1. Create a dictionary to store features we've already created
+        var featureCache = new Dictionary<string, Feature>();
+
         foreach (var directory in args)
         {
             var directoryInfo = new DirectoryInfo(directory);
             var fileVersion = versionRegex.Match(directoryInfo.Name).Value;
-            var feature = new Feature
+
+            // 2. Check if we already created a checkbox (feature) for this Revit version
+            if (!featureCache.TryGetValue(fileVersion, out var feature))
             {
-                Name = fileVersion,
-                Description = $"Install add-in for Revit {fileVersion}",
-                ConfigurableDir = $"INSTALL{fileVersion}"
-            };
+                // If not, create it once
+                feature = new Feature
+                {
+                    Name = $"Revit {fileVersion}",
+                    Description = $"Install all add-ins for Revit {fileVersion}",
+                    ConfigurableDir = $"INSTALL{fileVersion}"
+                };
 
-            revitFeature.Add(feature);
+                revitFeature.Add(feature);
+                featureCache.Add(fileVersion, feature);
+            }
 
+            // 3. Add the files from the current project directory to the SHARED feature
             var files = new Files(feature, $@"{directory}\*.*", FilterEntities);
+
             if (versionStorages.TryGetValue(fileVersion, out var storage))
             {
                 storage.Add(files);
             }
             else
             {
-                versionStorages.Add(fileVersion, [files]);
+                versionStorages.Add(fileVersion, new List<WixEntity> { files });
             }
 
             LogFeatureFiles(directory, fileVersion);
