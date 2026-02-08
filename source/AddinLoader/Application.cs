@@ -1,5 +1,9 @@
 ﻿using AddinLoader.Commands;
+using Autodesk.Revit.UI;
 using Nice3point.Revit.Toolkit.External;
+using System.IO;
+using System.Reflection;
+using Utilities; 
 
 namespace AddinLoader
 {
@@ -16,11 +20,14 @@ namespace AddinLoader
 
         private void CreateRibbon()
         {
-            var panel = Application.CreatePanel("Commands", "AddinLoader");
+            RibbonPanel panel = Application.CreatePanel("Commands", "AddinLoader");
 
-            panel.AddPushButton<StartupCommand>("Execute")
+            RibbonButton button = panel.AddPushButton<Invoke01>("Execute")
                 .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
                 .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
+
+
+
         }
     }
 }

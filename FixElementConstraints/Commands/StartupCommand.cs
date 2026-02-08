@@ -2,7 +2,7 @@
 using Autodesk.Revit.UI;
 using Nice3point.Revit.Toolkit.External;
 
-namespace TypeRenamer.Commands
+namespace FixElementConstraints.Commands
 {
     /// <summary>
     ///     External command entry point
@@ -14,7 +14,7 @@ namespace TypeRenamer.Commands
         {
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             Document doc = uidoc.Document;
-            TaskDialog.Show(doc.Title, "Oooooo");
+            TaskDialog.Show(doc.Title, "FixElems");
             return Result.Succeeded;
         }
     }
