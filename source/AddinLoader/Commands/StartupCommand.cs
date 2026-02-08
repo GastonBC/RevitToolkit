@@ -39,4 +39,6 @@ namespace AddinLoader.Commands
     public class Invoke11 : BaseInvoke { protected override string Path => GlobalVars.INVOKE11_PATH; protected override string LogName => "INVOKE 11"; }
     public class Invoke12 : BaseInvoke { protected override string Path => GlobalVars.INVOKE12_PATH; protected override string LogName => "INVOKE 12"; }
     public class Invoke13 : BaseInvoke { protected override string Path => GlobalVars.INVOKE13_PATH; protected override string LogName => "INVOKE 13"; }
+    public class Invoke14 : BaseInvoke { protected override string Path => GlobalVars.INVOKE13_PATH; protected override string LogName => "INVOKE 14"; }
+    public class Invoke15 : BaseInvoke { protected override string Path => GlobalVars.INVOKE13_PATH; protected override string LogName => "INVOKE 15"; }
 }

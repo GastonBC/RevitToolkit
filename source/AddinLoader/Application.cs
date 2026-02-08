@@ -54,9 +54,12 @@ namespace AddinLoader
             );
 
             // Column 5
-            RibbonButton typeRenamerbutton = panel.AddPushButton<Invoke13>("Toolbox")
-                .SetImage("/AddinLoader;component/Resources/Icons/RibbonIcon16.png")
-                .SetLargeImage("/AddinLoader;component/Resources/Icons/RibbonIcon32.png");
+            panel.AddStackedItems(
+                Utils.CreateButton("Toolbox", assemblyPath, typeof(Invoke13).FullName),
+                Utils.CreateButton("Match Grid Extents", assemblyPath, typeof(Invoke14).FullName),
+                Utils.CreateButton("Smart Grid Bubbles", assemblyPath, typeof(Invoke15).FullName)
+            );
+
 
         }
     }
