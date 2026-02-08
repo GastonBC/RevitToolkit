@@ -13,8 +13,8 @@ namespace ReValue.Commands
     {
         public override void Execute()
         {
-            var selection = this.UiDocument.Selection.GetElementIds()
-                                   .Select(id => this.Document.GetElement(id)).ToList();
+            var selection = UiDocument.Selection.GetElementIds()
+                                   .Select(id => Document.GetElement(id)).ToList();
 
             if (!selection.Any())
             {
@@ -22,7 +22,7 @@ namespace ReValue.Commands
                 return;
             }
 
-            var window = new ReValueWindow(this.Document, selection);
+            var window = new ReValueWindow(Document, selection);
             window.ShowDialog();
 
             return;
