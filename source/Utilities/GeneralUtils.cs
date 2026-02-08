@@ -14,21 +14,37 @@ namespace Utilities
 {
     public static partial class Utils
     {
-        public static PushButtonData CreateButton(string ButtonName, string exeConfigPath, string InvokerClass, string Tooltip="Tooltip soon")
+        public static PushButtonData CreateDefaultButton(string ButtonName, string exeConfigPath, string InvokerClass, bool Icon = true, string Tooltip="Tooltip soon")
         {
             PushButtonData buttonData = new PushButtonData(ButtonName, ButtonName, exeConfigPath, InvokerClass);
 
             buttonData.ToolTip = Tooltip;
 
-            // Define the resource paths
+            if (Icon)
+            {
+                // Define the resource paths
+                string icon16 = "pack://application:,,,/AddinLoader;component/Resources/Icons/RibbonIcon16.png";
+                string icon32 = "pack://application:,,,/AddinLoader;component/Resources/Icons/RibbonIcon32.png";
+
+                // Assign the images
+                buttonData.Image = new BitmapImage(new Uri(icon16));
+                buttonData.LargeImage = new BitmapImage(new Uri(icon32));
+            }
+
+            return buttonData;
+        }
+
+        public static PulldownButton CreateDefaultPulldown(string name, RibbonPanel panel)
+        {
+            PulldownButton pullDown = panel.AddPullDownButton(name);
+
             string icon16 = "pack://application:,,,/AddinLoader;component/Resources/Icons/RibbonIcon16.png";
             string icon32 = "pack://application:,,,/AddinLoader;component/Resources/Icons/RibbonIcon32.png";
 
-            // Assign the images
-            buttonData.Image = new BitmapImage(new Uri(icon16));
-            buttonData.LargeImage = new BitmapImage(new Uri(icon32));
+            pullDown.Image = new BitmapImage(new Uri(icon16));
+            pullDown.LargeImage = new BitmapImage(new Uri(icon32));
 
-            return buttonData;
+            return pullDown;
         }
 
 

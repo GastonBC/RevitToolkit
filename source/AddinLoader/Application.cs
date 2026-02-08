@@ -3,6 +3,7 @@ using Autodesk.Revit.UI;
 using Nice3point.Revit.Toolkit.External;
 using System.IO;
 using System.Reflection;
+using System.Windows.Media.Imaging;
 using Utilities; 
 
 namespace AddinLoader
@@ -27,39 +28,46 @@ namespace AddinLoader
 
             // Column 1
             panel.AddStackedItems(
-                Utils.CreateButton("Type Renamer", assemblyPath, typeof(Invoke01).FullName),
-                Utils.CreateButton("Fix Constraints", assemblyPath, typeof(Invoke02).FullName),
-                Utils.CreateButton("ReValue", assemblyPath, typeof(Invoke03).FullName)
+                Utils.CreateDefaultButton("Type Renamer", assemblyPath, typeof(TypeRenamer).FullName),
+                Utils.CreateDefaultButton("Fix Constraints", assemblyPath, typeof(FixConstraints).FullName),
+                Utils.CreateDefaultButton("ReValue", assemblyPath, typeof(ReValue).FullName)
             );
 
             // Column 2
             panel.AddStackedItems(
-                Utils.CreateButton("CAD Detective", assemblyPath, typeof(Invoke04).FullName),
-                Utils.CreateButton("Crop Reg", assemblyPath, typeof(Invoke05).FullName),
-                Utils.CreateButton("Element View Range", assemblyPath, typeof(Invoke06).FullName)
+                Utils.CreateDefaultButton("CAD Detective", assemblyPath, typeof(CADDetective).FullName),
+                Utils.CreateDefaultButton("Crop Reg", assemblyPath, typeof(CropReg).FullName),
+                Utils.CreateDefaultButton("Find Scheds Legends", assemblyPath, typeof(FindScheds).FullName)
+
             );
 
             // Column 3
             panel.AddStackedItems(
-                Utils.CreateButton("Find Scheds Legends", assemblyPath, typeof(Invoke07).FullName),
-                Utils.CreateButton("Orient Box To Face", assemblyPath, typeof(Invoke08).FullName),
-                Utils.CreateButton("Point Cloud Normals", assemblyPath, typeof(Invoke09).FullName)
+                Utils.CreateDefaultButton("Set By Index", assemblyPath, typeof(SetByIndex).FullName),
+                Utils.CreateDefaultButton("Orient Box To Face", assemblyPath, typeof(OrientBox).FullName),
+                Utils.CreateDefaultButton("Toolbox", assemblyPath, typeof(Toolbox).FullName)
+
             );
 
-            // Column 4
-            panel.AddStackedItems(
-                Utils.CreateButton("ReValue Duplicate", assemblyPath, typeof(Invoke10).FullName),
-                Utils.CreateButton("Set By Index", assemblyPath, typeof(Invoke11).FullName),
-                Utils.CreateButton("Toggle Point Cloud", assemblyPath, typeof(Invoke12).FullName)
-            );
 
-            // Column 5
-            panel.AddStackedItems(
-                Utils.CreateButton("Toolbox", assemblyPath, typeof(Invoke13).FullName),
-                Utils.CreateButton("Match Grid Extents", assemblyPath, typeof(Invoke14).FullName),
-                Utils.CreateButton("Smart Grid Bubbles", assemblyPath, typeof(Invoke15).FullName)
-            );
 
+            // REGION Keybind recommended
+            PulldownButton keyPullDown = Utils.CreateDefaultPulldown("Key Binds", panel);
+
+            keyPullDown.AddPushButton(Utils.CreateDefaultButton("Toggle Point Cloud", assemblyPath, typeof(TogglePC).FullName, false));
+            keyPullDown.AddPushButton(Utils.CreateDefaultButton("Point Cloud Normals", assemblyPath, typeof(PCNormals).FullName, false));
+            keyPullDown.AddPushButton(Utils.CreateDefaultButton("Element View Range", assemblyPath, typeof(Evr).FullName,false));
+
+            // ENDREGION
+
+            // REGION Minimal Tools
+
+            PulldownButton oneClickPullDown = Utils.CreateDefaultPulldown("Minimal Tools", panel);
+
+            oneClickPullDown.AddPushButton(Utils.CreateDefaultButton("Match Grid Extents", assemblyPath, typeof(MatchGrids).FullName, false));
+            oneClickPullDown.AddPushButton(Utils.CreateDefaultButton("Smart Grid Bubbles", assemblyPath, typeof(SmartBubbles).FullName, false));
+
+            // ENDREGION
 
         }
     }
