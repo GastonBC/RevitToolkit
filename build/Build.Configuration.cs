@@ -21,6 +21,15 @@ sealed partial class Build
     { Solution.FixElementConstraints, Solution.Automation.Installer },
     { Solution.ReValue, Solution.Automation.Installer },
     { Solution.TypeRenamer, Solution.Automation.Installer },
+    { Solution.CADDetective, Solution.Automation.Installer },
+    { Solution.CropReg, Solution.Automation.Installer },
+    { Solution.ElementViewRange, Solution.Automation.Installer },
+    { Solution.FindSchedsLegends, Solution.Automation.Installer },
+    { Solution.OrientBoxToFace, Solution.Automation.Installer },
+    { Solution.PointCloudNormals, Solution.Automation.Installer },
+    { Solution.SetByIndex, Solution.Automation.Installer },
+    { Solution.TogglePointCloud, Solution.Automation.Installer },
+    { Solution.Toolbox, Solution.Automation.Installer }
 };
 
     /// <summary>
