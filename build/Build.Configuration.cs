@@ -16,12 +16,12 @@ sealed partial class Build
     ///     Mapping between used installer project and the project containing the installation files.
     /// </summary>
     Dictionary<Project, Project> InstallersMap => new()
-    {
-        {Solution.Automation.Installer, Solution.AddinLoader},
-        {Solution.Automation.Installer, Solution.FixElementConstraints},
-        {Solution.Automation.Installer, Solution.ReValue},
-        {Solution.Automation.Installer, Solution.TypeRenamer},
-    };
+{
+    { Solution.AddinLoader, Solution.Automation.Installer },
+    { Solution.FixElementConstraints, Solution.Automation.Installer },
+    { Solution.ReValue, Solution.Automation.Installer },
+    { Solution.TypeRenamer, Solution.Automation.Installer },
+};
 
     /// <summary>
     ///     Path to build output.

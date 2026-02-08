@@ -15,7 +15,7 @@ sealed partial class Build
         .Executes(() =>
         {
             const string configuration = "Release";
-            foreach (var (wixInstaller, wixTarget) in InstallersMap)
+            foreach (var (wixTarget, wixInstaller) in InstallersMap)
             {
                 Log.Information("Project: {Name}", wixTarget.Name);
                 
