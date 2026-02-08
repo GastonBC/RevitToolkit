@@ -22,14 +22,19 @@ sealed partial class Build
     { Solution.ReValue, Solution.Automation.Installer },
     { Solution.TypeRenamer, Solution.Automation.Installer },
     { Solution.CADDetective, Solution.Automation.Installer },
+
     { Solution.CropReg, Solution.Automation.Installer },
     { Solution.ElementViewRange, Solution.Automation.Installer },
     { Solution.FindSchedsLegends, Solution.Automation.Installer },
     { Solution.OrientBoxToFace, Solution.Automation.Installer },
     { Solution.PointCloudNormals, Solution.Automation.Installer },
+
     { Solution.SetByIndex, Solution.Automation.Installer },
     { Solution.TogglePointCloud, Solution.Automation.Installer },
-    { Solution.Toolbox, Solution.Automation.Installer }
+    { Solution.Toolbox, Solution.Automation.Installer },
+    { Solution.SmartGridBubbles, Solution.Automation.Installer },
+    { Solution.MatchGridExtents, Solution.Automation.Installer }
+
 };
 
     /// <summary>
