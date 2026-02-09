@@ -10,6 +10,8 @@ namespace AddinLoader
 {
     internal static class GlobalVars
     {
+        internal static string TAB_NAME = "Gas Tools";
+
         // Gets the full path to the current DLL file
         internal static string assemblyLocation = Assembly.GetExecutingAssembly().Location;
 
