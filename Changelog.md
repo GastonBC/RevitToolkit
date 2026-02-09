@@ -2,7 +2,7 @@
 
 Initial release. Enjoy!
 
-# 1.0.1 - 2026-02-09
+# 1.0.1
 
 ### Added
 - Addins
