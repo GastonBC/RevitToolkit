@@ -12,6 +12,57 @@ namespace Utilities
 {
     public static partial class Utils
     {
+        public static Result InvokeApp(UIControlledApplication application, string assemblyPath, string className)
+        {
+            try
+            {
+
+                // Load bytes to avoid locking the DLL
+                byte[] assemblyBytes = File.ReadAllBytes(assemblyPath);
+                Assembly objAssembly = Assembly.Load(assemblyBytes);
+
+                // Find the class (Application)
+                IEnumerable<Type> types = GetTypesSafely(objAssembly);
+                foreach (Type type in types)
+                {
+                    if (type.IsClass && type.Name.Equals(className, StringComparison.OrdinalIgnoreCase))
+                    {
+                        // 3. Instantiate the class
+                        object appInstance = Activator.CreateInstance(type);
+
+                        // 4. Prepare arguments for OnStartup(UIControlledApplication application)
+                        object[] arguments = new object[] { application };
+
+                        // 5. Invoke OnStartup
+                        object result = type.InvokeMember("OnStartup",
+                            BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.Instance | BindingFlags.OptionalParamBinding,
+                            null, appInstance, arguments);
+
+                        // Handle the return type (void vs Result)
+                        if (result is Result res) return res;
+                        return Result.Succeeded;
+                    }
+                }
+            }
+            catch (TargetInvocationException ex)
+            {
+                // This is the "real" error happening inside your Application class
+                Exception realError = ex.InnerException;
+                Utils.SimpleDialog("Real Error", realError.Message + "\n" + realError.StackTrace);
+                return Result.Failed;
+            }
+
+            catch (Exception ex)
+            {
+                // Replace with your CatchDialog logic
+                TaskDialog.Show("Proxy App Error", ex.Message);
+                return Result.Failed;
+            }
+            return Result.Failed;
+        }
+
+
+
         /// <summary>
         /// Invoke a dll to memmory and then close it. Used to execute the addin. Pass the
         /// first 3 arguments from the calling class

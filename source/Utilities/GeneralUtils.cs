@@ -92,7 +92,7 @@ namespace Utilities
 
         public static void SimpleDialog(string header, string content)
         {
-            TaskDialog mainDialog = new TaskDialog("Revit Toolkin - GasBC");
+            TaskDialog mainDialog = new TaskDialog("Revit Toolkit - GasBC");
             mainDialog.TitleAutoPrefix = false;
             mainDialog.MainInstruction = header;
             mainDialog.MainContent = content;
@@ -101,7 +101,7 @@ namespace Utilities
 
         public static void SimpleDialog(string content)
         {
-            TaskDialog mainDialog = new TaskDialog("Revit Toolkin - GasBC");
+            TaskDialog mainDialog = new TaskDialog("Revit Toolkit - GasBC");
             mainDialog.TitleAutoPrefix = false;
             mainDialog.MainContent = content;
             mainDialog.Show();
@@ -109,7 +109,7 @@ namespace Utilities
 
         public static bool ConfirmDialog(string header, string content)
         {
-            TaskDialog mainDialog = new TaskDialog("Revit Toolkin - GasBC")
+            TaskDialog mainDialog = new TaskDialog("Revit Toolkit - GasBC")
             {
                 TitleAutoPrefix = false,
                 MainInstruction = header,

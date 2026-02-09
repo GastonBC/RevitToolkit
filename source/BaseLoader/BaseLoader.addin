@@ -1,0 +1,15 @@
+﻿<RevitAddIns>
+    <AddIn Type="Application">
+        <Name>BaseLoader</Name>
+        <Assembly>BaseLoader\BaseLoader.dll</Assembly>
+        <AddInId>12F03525-96DB-4466-A853-F8B1ABA4F64E</AddInId>
+        <FullClassName>BaseLoader.Application</FullClassName>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>BaseLoader</ContextName>
+    </ManifestSettings>
+</RevitAddIns>

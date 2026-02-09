@@ -13,9 +13,27 @@ namespace AddinLoader
     [UsedImplicitly]
     public class Application : ExternalApplication
     {
+        private string _targetFolder;
         public override void OnStartup()
         {
+            // 1. Get the path of the CURRENT dll (AddinLoader)
+            string currentDllPath = new Uri(Assembly.GetExecutingAssembly().Location).LocalPath;
+            _targetFolder = Path.GetDirectoryName(currentDllPath);
+
+            // 2. Setup the resolver so dependencies are found
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+
+            // 3. Create YOUR ribbon (the buttons you defined below)
             CreateRibbon();
+            { }
+
+            // 4. ONLY use InvokeApp if you are calling a DIFFERENT dll.
+            // If you want to load BaseLoader specifically for testing:
+            string baseLoaderPath = Path.Combine(_targetFolder, "BaseLoader.dll");
+            if (File.Exists(baseLoaderPath))
+            {
+                Utils.InvokeApp(this.Application, baseLoaderPath, "Application");
+            }
         }
 
         private void CreateRibbon()
@@ -69,6 +87,26 @@ namespace AddinLoader
             oneClickPullDown.AddPushButton(new PushButtonData("dimGrids", "Auto Dimension\nGrids", assemblyPath, typeof(AutoDimGrids).FullName));
 
 
+        }
+
+
+        private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+
+            // Get the name of the missing DLL (e.g., "Nice3point.Revit.Extensions")
+            string assemblyName = new AssemblyName(args.Name).Name + ".dll";
+            string fullPath = Path.Combine(_targetFolder, assemblyName);
+
+            if (File.Exists(fullPath))
+            {
+                // Option A: Load normally
+                // return Assembly.LoadFrom(fullPath);
+
+                // Option B: Load via bytes if you want to keep them unlocked
+                return Assembly.Load(File.ReadAllBytes(fullPath));
+            }
+
+            return null;
         }
     }
 }
