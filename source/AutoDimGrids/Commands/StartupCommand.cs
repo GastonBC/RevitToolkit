@@ -29,7 +29,7 @@ namespace AutoDimGrids.Commands
                 {
                     DatumPlane xGrid = SelectedElem as DatumPlane;
 
-                    IList<Curve> CurvesInGrid = xGrid.GetCurvesInView(DatumExtentType.ViewSpecific, uidoc.ActiveView);
+                    IList<Curve> CurvesInGrid = xGrid.GetCurvesInView(DatumExtentType.ViewSpecific, UiDocument.ActiveView);
 
                     Curve cv = CurvesInGrid.First(); // only one segment grids allowed
 
