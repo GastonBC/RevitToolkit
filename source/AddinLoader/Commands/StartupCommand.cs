@@ -37,23 +37,23 @@ namespace AddinLoader.Commands
     }
 
     // The class name needs to match exactly the dll being invoked. Folder structure is resolved in the base invoke
-    [Transaction(TransactionMode.Manual)] public class TypeRenamer : BaseInvoke { }
-    [Transaction(TransactionMode.Manual)] public class FixElementConstraints : BaseInvoke { }
-    [Transaction(TransactionMode.Manual)] public class ReValue : BaseInvoke { }
-    [Transaction(TransactionMode.Manual)] public class CADDetective : BaseInvoke { }
-    [Transaction(TransactionMode.Manual)] public class CropReg : BaseInvoke { }
+    [Transaction(TransactionMode.Manual)] public class TypeRenamer : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class FixElementConstraints : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class ReValue : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class CADDetective : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class CropReg : BaseInvoke;
 
-    [Transaction(TransactionMode.Manual)] public class ElementViewRange : BaseInvoke { }
-    [Transaction(TransactionMode.Manual)] public class FindSchedsLegends : BaseInvoke { }
-    [Transaction(TransactionMode.Manual)] public class OrientBoxToFace : BaseInvoke { }
-    [Transaction(TransactionMode.Manual)] public class PointCloudNormals : BaseInvoke { }
-    [Transaction(TransactionMode.Manual)] public class SetByIndex : BaseInvoke { }
+    [Transaction(TransactionMode.Manual)] public class ElementViewRange : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class FindSchedsLegends : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class OrientBoxToFace : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class PointCloudNormals : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class SetByIndex : BaseInvoke;
 
-    [Transaction(TransactionMode.Manual)] public class TogglePointCloud : BaseInvoke { }
-    [Transaction(TransactionMode.Manual)] public class Toolbox : BaseInvoke { }
-    [Transaction(TransactionMode.Manual)] public class MatchGridExtents : BaseInvoke { }
-    [Transaction(TransactionMode.Manual)] public class SmartGridBubbles : BaseInvoke { }
-    [Transaction(TransactionMode.Manual)] public class AutoDimGrids : BaseInvoke { }
+    [Transaction(TransactionMode.Manual)] public class TogglePointCloud : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class Toolbox : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class MatchGridExtents : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class SmartGridBubbles : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class AutoDimGrids : BaseInvoke;
 }
 
 
