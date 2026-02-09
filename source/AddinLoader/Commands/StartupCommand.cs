@@ -15,17 +15,17 @@ namespace AddinLoader.Commands
         {
             try
             {
-                // 1. Get the name of the concrete class (e.g., "TypeRenamer")
+                // Get the name of the concrete class (e.g., "TypeRenamer")
                 string toolName = GetType().Name;
 
-                // 2. Logic for sibling folders
+                // Logic for sibling folders
                 string assemblyLocation = Assembly.GetExecutingAssembly().Location;
                 string addinsRoot = Directory.GetParent(Path.GetDirectoryName(assemblyLocation)).FullName;
 
-                // 3. Build path: .../TypeRenamer/TypeRenamer.dll
+                // Build path: .../TypeRenamer/TypeRenamer.dll
                 string targetDllPath = Path.Combine(addinsRoot, toolName, $"{toolName}.dll");
 
-                // 4. Invoke using the class name as the LogName
+                // Invoke using the class name as the LogName
                 return Utils.InvokeCmd(commandData, ref message, elements, targetDllPath, toolName);
             }
             catch (Exception ex)

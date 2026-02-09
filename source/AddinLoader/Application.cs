@@ -70,29 +70,6 @@ namespace AddinLoader
             oneClickPullDown.AddPushButton(new PushButtonData("dimGrids", "Auto Dimension\nGrids", assemblyPath, typeof(AutoDimGrids).FullName));
 
 
-            /*
-            // REGION Keybind recommended
-            PulldownButton keyPullDown = Utils.CreateDefaultPulldown("Key Binds", otherPanel);
-
-            keyPullDown.AddPushButton(Utils.CreateDefaultButton("Toggle Point Cloud", assemblyPath, typeof(TogglePC).FullName, false));
-            keyPullDown.AddPushButton(Utils.CreateDefaultButton("Point Cloud Normals", assemblyPath, typeof(PCNormals).FullName, false));
-            keyPullDown.AddPushButton(Utils.CreateDefaultButton("Element View Range", assemblyPath, typeof(Evr).FullName, false));
-            keyPullDown.AddPushButton(Utils.CreateDefaultButton("Orient Box To Face", assemblyPath, typeof(OrientBox).FullName, false));
-
-
-            // ENDREGION
-
-            // REGION Minimal Tools
-
-            PulldownButton oneClickPullDown = Utils.CreateDefaultPulldown("Minimal Tools", otherPanel);
-
-            oneClickPullDown.AddPushButton(Utils.CreateDefaultButton("Match Grid Extents", assemblyPath, typeof(MatchGrids).FullName, false));
-            oneClickPullDown.AddPushButton(Utils.CreateDefaultButton("Smart Grid Bubbles", assemblyPath, typeof(SmartBubbles).FullName, false));
-
-            // ENDREGION
-            */
-
-
         }
     }
 }
