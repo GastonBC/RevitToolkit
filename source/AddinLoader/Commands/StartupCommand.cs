@@ -1,22 +1,32 @@
-﻿using Autodesk.Revit.Attributes;
+﻿using AddinLoader;
+using AddinLoader.Commands;
+using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI;
 using Nice3point.Revit.Toolkit.External;
+using System.IO;
+using System.Reflection;
 using Utilities;
 
 namespace AddinLoader.Commands
 {
-
-    
     public abstract class BaseInvoke : IExternalCommand
     {
-        protected abstract string Path { get; }
-        protected abstract string LogName { get; }
-
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             try
             {
-                return Utils.InvokeCmd(commandData, ref message, elements, Path, LogName);
+                // Get the name of the concrete class (e.g., "TypeRenamer")
+                string toolName = GetType().Name;
+
+                // Logic for sibling folders
+                string assemblyLocation = Assembly.GetExecutingAssembly().Location;
+                string addinsRoot = Directory.GetParent(Path.GetDirectoryName(assemblyLocation)).FullName;
+
+                // Build path: .../TypeRenamer/TypeRenamer.dll
+                string targetDllPath = Path.Combine(addinsRoot, toolName, $"{toolName}.dll");
+
+                // Invoke using the class name as the LogName
+                return Utils.InvokeCmd(commandData, ref message, elements, targetDllPath, toolName);
             }
             catch (Exception ex)
             {
@@ -26,19 +36,24 @@ namespace AddinLoader.Commands
         }
     }
 
-    [Transaction(TransactionMode.Manual)] public class TypeRenamer : BaseInvoke { protected override string Path => GlobalVars.INVOKE01_PATH; protected override string LogName => "INVOKE 01"; }
-    [Transaction(TransactionMode.Manual)] public class FixConstraints : BaseInvoke { protected override string Path => GlobalVars.INVOKE02_PATH; protected override string LogName => "INVOKE 02"; }
-    [Transaction(TransactionMode.Manual)] public class ReValue : BaseInvoke { protected override string Path => GlobalVars.INVOKE03_PATH; protected override string LogName => "INVOKE 03"; }
-    [Transaction(TransactionMode.Manual)] public class CADDetective : BaseInvoke { protected override string Path => GlobalVars.INVOKE04_PATH; protected override string LogName => "INVOKE 04"; }
-    [Transaction(TransactionMode.Manual)] public class CropReg : BaseInvoke { protected override string Path => GlobalVars.INVOKE05_PATH; protected override string LogName => "INVOKE 05"; }
-    [Transaction(TransactionMode.Manual)] public class Evr : BaseInvoke { protected override string Path => GlobalVars.INVOKE06_PATH; protected override string LogName => "INVOKE 06"; }
-    [Transaction(TransactionMode.Manual)] public class FindScheds : BaseInvoke { protected override string Path => GlobalVars.INVOKE07_PATH; protected override string LogName => "INVOKE 07"; }
-    [Transaction(TransactionMode.Manual)] public class OrientBox : BaseInvoke { protected override string Path => GlobalVars.INVOKE08_PATH; protected override string LogName => "INVOKE 08"; }
-    [Transaction(TransactionMode.Manual)] public class PCNormals : BaseInvoke { protected override string Path => GlobalVars.INVOKE09_PATH; protected override string LogName => "INVOKE 09"; }
-    [Transaction(TransactionMode.Manual)] public class Invoke10 : BaseInvoke { protected override string Path => GlobalVars.INVOKE10_PATH; protected override string LogName => "INVOKE 10"; }
-    [Transaction(TransactionMode.Manual)] public class SetByIndex : BaseInvoke { protected override string Path => GlobalVars.INVOKE11_PATH; protected override string LogName => "INVOKE 11"; }
-    [Transaction(TransactionMode.Manual)] public class TogglePC : BaseInvoke { protected override string Path => GlobalVars.INVOKE12_PATH; protected override string LogName => "INVOKE 12"; }
-    [Transaction(TransactionMode.Manual)] public class Toolbox : BaseInvoke { protected override string Path => GlobalVars.INVOKE13_PATH; protected override string LogName => "INVOKE 13"; }
-    [Transaction(TransactionMode.Manual)] public class MatchGrids : BaseInvoke { protected override string Path => GlobalVars.INVOKE13_PATH; protected override string LogName => "INVOKE 14"; }
-    [Transaction(TransactionMode.Manual)] public class SmartBubbles : BaseInvoke { protected override string Path => GlobalVars.INVOKE13_PATH; protected override string LogName => "INVOKE 15"; }
+    // The class name needs to match exactly the dll being invoked. Folder structure is resolved in the base invoke
+    [Transaction(TransactionMode.Manual)] public class TypeRenamer : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class FixElementConstraints : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class ReValue : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class CADDetective : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class CropReg : BaseInvoke;
+
+    [Transaction(TransactionMode.Manual)] public class ElementViewRange : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class FindSchedsLegends : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class OrientBoxToFace : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class PointCloudNormals : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class SetByIndex : BaseInvoke;
+
+    [Transaction(TransactionMode.Manual)] public class TogglePointCloud : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class Toolbox : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class MatchGridExtents : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class SmartGridBubbles : BaseInvoke;
+    [Transaction(TransactionMode.Manual)] public class AutoDimGrids : BaseInvoke;
 }
+
+

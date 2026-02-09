@@ -1,0 +1,16 @@
+﻿<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>AutoDimGrids</Name>
+        <Assembly>AutoDimGrids\AutoDimGrids.dll</Assembly>
+        <AddInId>E755F099-15B6-4DEE-9041-42CCDC4C90C0</AddInId>
+        <FullClassName>AutoDimGrids.Commands.StartupCommand</FullClassName>
+        <Text>AutoDimGrids</Text>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>AutoDimGrids</ContextName>
+    </ManifestSettings>
+</RevitAddIns>
