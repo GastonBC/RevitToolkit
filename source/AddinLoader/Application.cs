@@ -31,7 +31,7 @@ namespace AddinLoader
             // Column 1
             selectObjectsPanel.AddStackedItems(
                 Utils.CreateDefaultButton("Type Renamer", assemblyPath, typeof(TypeRenamer).FullName),
-                Utils.CreateDefaultButton("Fix Constraints", assemblyPath, typeof(FixConstraints).FullName),
+                Utils.CreateDefaultButton("Fix Constraints", assemblyPath, typeof(FixElementConstraints).FullName),
                 Utils.CreateDefaultButton("ReValue", assemblyPath, typeof(ReValue).FullName)
             );
 
@@ -39,7 +39,7 @@ namespace AddinLoader
             guiBasedPanel.AddStackedItems(
                 Utils.CreateDefaultButton("CAD Detective", assemblyPath, typeof(CADDetective).FullName),
                 Utils.CreateDefaultButton("Draw Crop Regions", assemblyPath, typeof(CropReg).FullName),
-                Utils.CreateDefaultButton("Find Scheds Legends", assemblyPath, typeof(FindScheds).FullName)
+                Utils.CreateDefaultButton("Find Scheds Legends", assemblyPath, typeof(FindSchedsLegends).FullName)
 
             );
 
@@ -59,14 +59,15 @@ namespace AddinLoader
             PulldownButton keyPullDown = stackedItems[0] as PulldownButton;
             PulldownButton oneClickPullDown = stackedItems[1] as PulldownButton;
 
-            keyPullDown.AddPushButton(new PushButtonData("btnTogglePC", "Toggle Point Cloud", assemblyPath, typeof(TogglePC).FullName));
-            keyPullDown.AddPushButton(new PushButtonData("btnPCNormals", "Point Cloud Normals", assemblyPath, typeof(PCNormals).FullName));
-            keyPullDown.AddPushButton(new PushButtonData("btnEvr", "Element View Range", assemblyPath, typeof(Evr).FullName));
-            keyPullDown.AddPushButton(new PushButtonData("btnOrientBox", "Orient Box To Face", assemblyPath, typeof(OrientBox).FullName));
+            keyPullDown.AddPushButton(new PushButtonData("btnTogglePC", "Toggle Point Cloud", assemblyPath, typeof(TogglePointCloud).FullName));
+            keyPullDown.AddPushButton(new PushButtonData("btnPCNormals", "Point Cloud Normals", assemblyPath, typeof(PointCloudNormals).FullName));
+            keyPullDown.AddPushButton(new PushButtonData("btnEvr", "Element View Range", assemblyPath, typeof(ElementViewRange).FullName));
+            keyPullDown.AddPushButton(new PushButtonData("btnOrientBox", "Orient Box To Face", assemblyPath, typeof(OrientBoxToFace).FullName));
 
 
-            oneClickPullDown.AddPushButton(new PushButtonData("btnMatchGrids", "Match Grid Extents", assemblyPath, typeof(MatchGrids).FullName));
-            oneClickPullDown.AddPushButton(new PushButtonData("btnSmartBubbles", "Smart Grid Bubbles", assemblyPath, typeof(SmartBubbles).FullName));
+            oneClickPullDown.AddPushButton(new PushButtonData("btnMatchGrids", "Match Grid Extents", assemblyPath, typeof(MatchGridExtents).FullName));
+            oneClickPullDown.AddPushButton(new PushButtonData("btnSmartBubbles", "Smart Grid Bubbles", assemblyPath, typeof(SmartGridBubbles).FullName));
+            oneClickPullDown.AddPushButton(new PushButtonData("dimGrids", "Auto Dimension\nGrids", assemblyPath, typeof(AutoDimGrids).FullName));
 
 
             /*

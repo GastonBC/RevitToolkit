@@ -20,24 +20,22 @@ namespace AddinLoader
         internal static string ADDINS_DLL_PATH = Directory.GetParent(Path.GetDirectoryName(assemblyLocation)).FullName;
 
 
-        internal static string INVOKE01_PATH = Path.Combine(ADDINS_DLL_PATH, "TypeRenamer", "TypeRenamer.dll");
-        internal static string INVOKE02_PATH = Path.Combine(ADDINS_DLL_PATH, "FixElementConstraints", "FixElementConstraints.dll");
-        internal static string INVOKE03_PATH = Path.Combine(ADDINS_DLL_PATH, "ReValue", "ReValue.dll");
+        //internal static string RENAMER_PATH = Path.Combine(ADDINS_DLL_PATH, "TypeRenamer", "TypeRenamer.dll");
+        //internal static string FIXCONST_PATH = Path.Combine(ADDINS_DLL_PATH, "FixElementConstraints", "FixElementConstraints.dll");
+        //internal static string REVALUE_PATH = Path.Combine(ADDINS_DLL_PATH, "ReValue", "ReValue.dll");
+        //internal static string CADDET_PATH = Path.Combine(ADDINS_DLL_PATH, "CADDetective", "CADDetective.dll");
+        //internal static string CROPREG_PATH = Path.Combine(ADDINS_DLL_PATH, "CropReg", "CropReg.dll");
 
-        internal static string INVOKE04_PATH = Path.Combine(ADDINS_DLL_PATH, "CADDetective", "CADDetective.dll");
-        internal static string INVOKE05_PATH = Path.Combine(ADDINS_DLL_PATH, "CropReg", "CropReg.dll");
-        internal static string INVOKE06_PATH = Path.Combine(ADDINS_DLL_PATH, "ElementViewRange", "ElementViewRange.dll");
+        //internal static string EVR_PATH = Path.Combine(ADDINS_DLL_PATH, "ElementViewRange", "ElementViewRange.dll");
+        //internal static string FINDSCHEDS_PATH = Path.Combine(ADDINS_DLL_PATH, "FindSchedsLegends", "FindSchedsLegends.dll");
+        //internal static string ORIENTBOX_PATH = Path.Combine(ADDINS_DLL_PATH, "OrientBoxToFace", "OrientBoxToFace.dll");
+        //internal static string PCNORM_PATH = Path.Combine(ADDINS_DLL_PATH, "PointCloudNormals", "PointCloudNormals.dll");
+        //internal static string SETINDEX_PATH = Path.Combine(ADDINS_DLL_PATH, "SetByIndex", "SetByIndex.dll");
 
-        internal static string INVOKE07_PATH = Path.Combine(ADDINS_DLL_PATH, "FindSchedsLegends", "FindSchedsLegends.dll");
-        internal static string INVOKE08_PATH = Path.Combine(ADDINS_DLL_PATH, "OrientBoxToFace", "OrientBoxToFace.dll");
-        internal static string INVOKE09_PATH = Path.Combine(ADDINS_DLL_PATH, "PointCloudNormals", "PointCloudNormals.dll");
-
-        internal static string INVOKE10_PATH = Path.Combine(ADDINS_DLL_PATH, "ReValue", "ReValue.dll");
-        internal static string INVOKE11_PATH = Path.Combine(ADDINS_DLL_PATH, "SetByIndex", "SetByIndex.dll");
-        internal static string INVOKE12_PATH = Path.Combine(ADDINS_DLL_PATH, "TogglePointCloud", "TogglePointCloud.dll");
-
-        internal static string INVOKE13_PATH = Path.Combine(ADDINS_DLL_PATH, "Toolbox", "Toolbox.dll");
-        internal static string INVOKE14_PATH = Path.Combine(ADDINS_DLL_PATH, "MatchGridExtents", "MatchGridExtents.dll");
-        internal static string INVOKE15_PATH = Path.Combine(ADDINS_DLL_PATH, "SmartGridBubbles", "SmartGridBubbles.dll");
+        //internal static string PCTOGGLE_PATH = Path.Combine(ADDINS_DLL_PATH, "TogglePointCloud", "TogglePointCloud.dll");
+        //internal static string TOOLS_PATH = Path.Combine(ADDINS_DLL_PATH, "Toolbox", "Toolbox.dll");
+        //internal static string EXTENTS_PATH = Path.Combine(ADDINS_DLL_PATH, "MatchGridExtents", "MatchGridExtents.dll");
+        //internal static string DIMGRIDS_PATH = Path.Combine(ADDINS_DLL_PATH, "AutoDimGrids", "AutoDimGrids.dll");
+        //internal static string SMARTGRIDS_PATH = Path.Combine(ADDINS_DLL_PATH, "SmartGridBubbles", "SmartGridBubbles.dll");
     }
 }
