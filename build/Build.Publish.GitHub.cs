@@ -18,13 +18,15 @@ sealed partial class Build
             var artifacts = Directory.GetFiles(ArtifactsDirectory, "*");
             Assert.NotEmpty(artifacts, "No artifacts were found to create the Release");
 
-            var changelogBuilder = CreateChangelogBuilder();
-            WriteGitHubCompareUrl(changelogBuilder);
+            // Bypass changelog because its not working
+            //var changelogBuilder = CreateChangelogBuilder();
+            //WriteGitHubCompareUrl(changelogBuilder);
+            var releaseBody = $"Release {ReleaseVersion}";
 
             var newRelease = new NewRelease(ReleaseVersion)
             {
                 Name = ReleaseVersion,
-                Body = changelogBuilder.ToString(),
+                Body = releaseBody,
                 TargetCommitish = GitRepository.Commit,
                 Prerelease = IsPrerelease
             };
