@@ -4,13 +4,12 @@ using Nice3point.Revit.Toolkit.External;
 using System.IO;
 using System.Reflection;
 using System.Windows.Media.Imaging;
-using Utilities; 
+using Utilities;
+using Globals = Utilities.GlobalVars;
 
 namespace AddinLoader
 {
-    /// <summary>
-    ///     Application entry point
-    /// </summary>
+
     [UsedImplicitly]
     public class Application : ExternalApplication
     {
@@ -21,9 +20,9 @@ namespace AddinLoader
 
         private void CreateRibbon()
         {
-            RibbonPanel selectObjectsPanel = Application.CreatePanel("Selection Based", GlobalVars.TAB_NAME);
-            RibbonPanel guiBasedPanel = Application.CreatePanel("Interface Based", GlobalVars.TAB_NAME);
-            RibbonPanel otherPanel = Application.CreatePanel("Other", GlobalVars.TAB_NAME);
+            RibbonPanel selectObjectsPanel = Application.CreatePanel("Selection Based", Globals.TAB_NAME);
+            RibbonPanel guiBasedPanel = Application.CreatePanel("Interface Based", Globals.TAB_NAME);
+            RibbonPanel otherPanel = Application.CreatePanel("Other", Globals.TAB_NAME);
 
 
             string assemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
